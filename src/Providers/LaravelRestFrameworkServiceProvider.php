@@ -11,6 +11,12 @@
 namespace LaravelRestFramework\Providers;
 
 use Illuminate\Support\ServiceProvider;
+use LaravelRestFramework\Console\LrfControllerMakeCommand;
+use LaravelRestFramework\Console\LrfFilterMakeCommand;
+use LaravelRestFramework\Console\LrfModelMakeCommand;
+use LaravelRestFramework\Console\LrfPermissionMakeCommand;
+use LaravelRestFramework\Console\LrfRequestMakeCommand;
+use LaravelRestFramework\Console\LrfResourceMakeCommand;
 use LaravelRestFramework\Routing\ResourceRegistrar;
 
 class LaravelRestFrameworkServiceProvider extends ServiceProvider
@@ -22,6 +28,16 @@ class LaravelRestFrameworkServiceProvider extends ServiceProvider
      */
     public function boot()
     {
+        if ($this->app->runningInConsole()) {
+            $this->commands([
+                LrfControllerMakeCommand::class,
+                LrfModelMakeCommand::class,
+                LrfRequestMakeCommand::class,
+                LrfResourceMakeCommand::class,
+                LrfPermissionMakeCommand::class,
+                LrfFilterMakeCommand::class,
+            ]);
+        }
     }
 
     /**
@@ -32,8 +48,6 @@ class LaravelRestFrameworkServiceProvider extends ServiceProvider
     public function register()
     {
         $this->registerResources();
-
-
     }
 
     /**
