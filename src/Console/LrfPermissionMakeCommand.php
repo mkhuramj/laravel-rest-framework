@@ -45,7 +45,7 @@ class LrfPermissionMakeCommand extends GeneratorCommand
     protected function buildClass($name)
     {
         $stub = $this->files->get($this->getStub());
-        $classSnake = Str::plural(Str::snake(class_basename($this->argument('name'))));
+        $classSnake = Str::snake(class_basename($this->argument('name')));
         $stub = $this->replaceNamespace($stub, $name)
                      ->replaceClassSnake($stub, $classSnake)
                      ->replaceClass($stub, $name);

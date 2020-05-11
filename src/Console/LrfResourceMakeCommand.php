@@ -37,22 +37,20 @@ class LrfResourceMakeCommand extends GeneratorCommand
      */
     protected $type = 'Resource';
 
-    /**
-     * Execute the console command.
-     *
-     * @return bool|null
-     */
-    public function handle()
-    {
-        // $this->input->setOption('collection', false);
-        parent::handle();
-        
-        
-        $this->input->setOption('collection', true);
-        $this->type = 'Resource collection';
+    // /**
+    //  * Execute the console command.
+    //  *
+    //  * @return bool|null
+    //  */
+    // public function handle()
+    // {
+    //     // $this->input->setOption('collection', false);
+    //     parent::handle();
+    //     $this->input->setOption('collection', true);
+    //     $this->type = 'Resource Collection';
 
-        parent::handle();
-    }
+    //     parent::handle();
+    // }
 
     /**
      * Get the stub file for the generator.
@@ -61,7 +59,7 @@ class LrfResourceMakeCommand extends GeneratorCommand
      */
     protected function getStub()
     {
-        if ($this->collection())
+        if ($this->collection()) 
             return __DIR__ . '/stubs/resource-collection.stub';
         else
             return __DIR__ . '/stubs/resource.stub';
