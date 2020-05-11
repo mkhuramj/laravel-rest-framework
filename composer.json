@@ -1,0 +1,21 @@
+{
+    "name": "khuram/laravel-rest-framework",
+    "description": "The simple, easy and plug to play Laravel Rest Framework inspired by Django Rest Framework.",
+    "type": "library",
+    "license": "MIT",
+    "authors": [
+        {
+            "name": "Khuram Javed",
+            "email": "m.khuramj@gmail.com"
+        }
+    ],
+    "minimum-stability": "dev",
+    "require": {},
+    "extra": {
+        "laravel": {
+            "providers": [
+                "LaravelRestFramework\\Providers\\LaravelRestFramewokServiceProvider"
+            ]
+        }
+    }
+}
