@@ -2,9 +2,9 @@
 
 namespace DummyNamespace;
 
-use Illuminate\Foundation\Http\FormRequest;
+use LaravelRestFramework\Http\Requests\ApiRequest;
 
-class DummyClass extends FormRequest
+class DummyClass extends ApiRequest
 {
     /**
      * Determine if the user is authorized to make this request.
@@ -13,7 +13,8 @@ class DummyClass extends FormRequest
      */
     public function authorize()
     {
-        return false;
+        // LRF don't use this method for the permissions purpose
+        return true;
     }
 
     /**
