@@ -16,7 +16,7 @@
 
 ---
 
-<p align="center"> LRF is the mixture of Laravel. It allows to attach Filters, Permissions, Validation and much more with the LRF Controllers (Controllers) as in Django Rest Framework (DRF).
+<p align="center"> LRF allows you to integrate the Permissions, Filters, Filtered Querysets per action, Validation with Laravel (Lumen) as used in Django Rest Framework (DRF).
     <br> 
 </p>
 
@@ -28,8 +28,11 @@
 
 ## 🧐 About <a name = "about"></a>
 
-I have worked with both Laravel and DRF. I like the why DRF allows to attach and handle Permissions, Filters, Validation and CRUD nicely with views (controllers in Laravel). That is very nice and simple and easy. So getting the idea of using Permissions, Filters, Validation etc, from DRF I decided to make something like that for Laravel. This will help those who are coming from DRF to Laravel or to newbies who are learning Laravel. As after installing this plugin you only need to run (enhanced) artisan command to create LRF Controller, Model, Resource, API Requests (Form Requests) and just write migration add fields in fillable array. You are ready to CRUD with Laravel :-)
-Later on you can quite easily add filters, permissions validation and much more.
+I have been developing using laravel for 4 years and got the chance to use Django and DRF. I like the way DRF allows to attach and handle Permissions, Filters, Validation and very easy (inital) CRUD with the help of mixins nicely used with views (controllers in Laravel). So when I came back to Laravel I had the options like Gates and Policy to authorize the users. But I wanted to have something like DRF provides for the Permissions and Filters and a nicely filtered querySet for each of your requests and it can further be filtered for role bases. So getting that idea, of using Permissions, Filters, Validation etc, from DRF, I decided to make something like that for Laravel (and later for Lumen).
+
+This will help those who are coming from DRF to Laravel or those who want an easy way to implement permissions and filter for the incoming requests. Also, it will give a new dimention to the Laravel community. 
+
+Another nice thing about this package is you only need to run the lrf:model --all and it will create Controller, Model, ApiRequest (FormRrequest), Resources, Permission and Filter. To start the crud for the newly create model, you only need to write the migration, add fillable fields in the fillable array of the model, add the resource route in the api route and you are ready to CRUD with Laravel :-)
 
 
 ## ✍️ Authors <a name = "authors"></a>
