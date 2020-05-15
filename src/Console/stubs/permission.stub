@@ -1,0 +1,46 @@
+<?php
+
+namespace DummyNamespace;
+
+use LaravelRestFramework\Http\Permissions\BasePermission;
+
+class DummyClassPermission extends BasePermission
+{
+    public const LIST = 'DummyClass.list_DummyClassSnake';
+    public const RETRIEVE = 'DummyClass.retrieve_DummyClassSnake';
+    public const CREATE = 'DummyClass.create_DummyClassSnake';
+    public const UPDATE = 'DummyClass.update_DummyClassSnake';
+    public const DELETE = 'DummyClass.delete_DummyClassSnake';
+
+    public function _hasPermission($request, $controller)
+    {
+        switch ($controller->action) {
+            case 'list':
+                return $this->actionIsAllowed($request, $request->user, self::LIST);
+            case 'retrieve':
+                return $this->actionIsAllowed($request, $request->user, self::RETRIEVE);
+            case 'create':
+                return $this->actionIsAllowed($request, $request->user, self::CREATE);
+            case 'update':
+                return $this->actionIsAllowed($request, $request->user, self::UPDATE);
+            case 'destroy':
+                return $this->actionIsAllowed($request, $request->user, self::DELETE);
+            default:
+                return FALSE;
+        }
+    }
+
+    public function _hasObjectPermission($request, $controller, $object)
+    {
+        switch ($controller->action) {
+            case 'retrieve':
+                return $this->objectIsAllowedToRetrieve($request, $request->user, $object);
+            case 'update':
+                return $this->objectIsAllowedToUpdate($request, $request->user, $object);
+            case 'destroy':
+                return $this->objectIsAllowedToDelete($request, $request->user, $object);
+            default:
+                return FALSE;
+        }
+    }
+}

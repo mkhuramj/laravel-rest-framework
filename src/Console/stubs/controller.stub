@@ -1,0 +1,53 @@
+<?php
+
+namespace DummyNamespace;
+
+use LaravelRestFramework\Http\Controllers\ControllerTraits\CrudTrait;
+use LaravelRestFramework\Http\Controllers\LaravelRestFrameworkController;
+
+use App\Http\Filters\DummyModelClassFilter;
+use App\Http\Permissions\DummyModelClassPermission;
+use App\Http\Requests\DummyModelClass\CreateDummyModelClassApiRequest;
+use App\Http\Requests\DummyModelClass\UpdateDummyModelClassApiRequest;
+
+class DummyClass extends LaravelRestFrameworkController
+{
+    use CrudTrait;
+
+    /**
+     * The name of the model, in lower, binded to the controller
+     *
+     * @var Illuminate\Database\Eloquent\Model
+     */
+    public $model = 'DummySnakeModelClass';
+
+    public $apiRequests = [
+        'create'  => CreateDummyModelClassApiRequest::class,
+        'update' => UpdateDummyModelClassApiRequest::class
+    ];
+
+    /**
+     * Holds the permissions to check the validaty of the action requested in the current request.
+     *
+     * @var array
+     */
+    public $permissions = [DummyModelClassPermission::class];
+
+    /**
+     * Holds the permissions to check the validaty of the action requested in the current request.
+     *
+     * @var  LaravelRestFramework\Http\Filters\BaseFilter;
+     */
+    public $filterClass = DummyModelClassFilter::class;
+
+    /**
+     * Provides the querySet for the current request/action
+     *
+     * @return Illuminate\Database\Eloquent\Builder
+     */
+    public function getQuerySet()
+    {
+        $this->querySet = $this->modelClass::query();
+        return $this->querySet;
+    }
+}

@@ -1,0 +1,16 @@
+<?php
+
+namespace DummyNamespace;
+
+use LaravelRestFramework\Http\Filters\BaseFilter;
+
+class DummyClassFilter extends BaseFilter
+{
+    /**
+     * Holds the methods to apply as filter on a given querySet as the
+     * [field_name => filterFieldName] array
+     */
+    protected $methodsToFilter = [
+        //
+    ];
+}
